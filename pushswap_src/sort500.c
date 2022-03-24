@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort500.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jking-ye <jking-ye@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:51:07 by jking-ye          #+#    #+#             */
-/*   Updated: 2022/03/13 17:51:12 by jking-ye         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:01:47 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@ void	sort500(t_stack *a, t_stack *b)
 {
 	int	i;
 
+	i = 0;
 	while (*a->size > 50)
 		get50r(a, b);
 	while (*a->size > 10)
+	{
 		push10smallest(a, b);
-	push5smallest(a, b);
-	sort5ascend(a, b);
-	sort5decend(a, b);
-	i = 0;
-	while (i < 4)
+		i += 1;
+	}
+	sortunder10(a, b);
+	while (i > 0)
 	{
 		push5biggest(a, b);
 		sort5ascend(a, b);
 		sort5decend(a, b);
-		i++;
+		i--;
 	}
-	while (i < 50)
+	while (!(checksorted(a, b)))
 	{
 		push10biggest(a, b);
 		push5smallest(a, b);
 		sort5ascend(a, b);
 		sort5decend(a, b);
-		i++;
 	}
 }
 

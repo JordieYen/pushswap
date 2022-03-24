@@ -22,7 +22,9 @@ SRC =	errorchecks.c \
 		sort500.c \
 		sort_utils_2.c \
 		sort_utils_4.c \
-		frees.c
+		frees.c \
+		sort4and2.c \
+		sortunder10.c
 
 OBJ = ${SRC:.c=.o}
 

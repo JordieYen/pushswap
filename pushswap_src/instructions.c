@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jking-ye <jking-ye@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:51:44 by jking-ye          #+#    #+#             */
-/*   Updated: 2022/03/13 17:52:16 by jking-ye         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:36:19 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,30 @@ void	rotate(t_stack *s, char c)
 {
 	int	first;
 
-	first = s->stck[0];
-	movesecondup(s);
-	ft_putstr_fd("r", 1);
-	ft_putchar_fd(c, 1);
-	ft_putendl_fd("", 1);
-	s->stck[*s->size - 1] = first;
+	if (*s->size > 1)
+	{
+		first = s->stck[0];
+		movesecondup(s);
+		ft_putstr_fd("r", 1);
+		ft_putchar_fd(c, 1);
+		ft_putendl_fd("", 1);
+		s->stck[*s->size - 1] = first;
+	}
 }
 
 void	reverserotate(t_stack *s, char c)
 {
 	int	last;
 
-	last = s->stck[*s->size - 1];
-	moveseconddown(s);
-	ft_putstr_fd("rr", 1);
-	ft_putchar_fd(c, 1);
-	ft_putendl_fd("", 1);
-	s->stck[0] = last;
+	if (*s->size > 0)
+	{
+		last = s->stck[*s->size - 1];
+		moveseconddown(s);
+		ft_putstr_fd("rr", 1);
+		ft_putchar_fd(c, 1);
+		ft_putendl_fd("", 1);
+		s->stck[0] = last;
+	}
 }
 
 void	reverserotate_n(t_stack *s, char c, int n)

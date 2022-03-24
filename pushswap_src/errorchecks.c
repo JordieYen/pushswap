@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errorchecks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jking-ye <jking-ye@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 21:19:29 by jking-ye          #+#    #+#             */
-/*   Updated: 2022/03/16 05:03:50 by jking-ye         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:30:40 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	checkintover(char *num)
 	i = ft_atoi(num);
 	c = ft_itoa(i);
 	test = ft_strcmp(num, c);
+	free(c);
 	if (test == 0)
 		return (1);
 	return (0);

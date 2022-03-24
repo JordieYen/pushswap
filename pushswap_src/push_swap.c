@@ -6,7 +6,7 @@
 /*   By: jking-ye <jking-ye@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:44:34 by jking-ye          #+#    #+#             */
-/*   Updated: 2022/03/17 20:58:50 by jking-ye         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:29:53 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 
 void	sort(t_stack *a, t_stack *b)
 {
-	if (*a->size == 3)
+	if (*a->size == 2)
+		sort2ascend(a, 'a');
+	else if (*a->size == 3)
 		sort3(a);
+	else if (*a->size == 4)
+		sort4ascend(a, b);
 	else if (*a->size == 5)
 		sort5(a, b);
-	else if (*a->size == 100)
+	else if (*a->size > 5 && *a->size <= 10)
+		sortunder10(a, b);
+	else if (*a->size > 5 && *a->size <= 250)
 		sort100(a, b);
-	else if (*a->size == 500 || *a->size == 50)
+	else if (*a->size > 250)
 		sort500(a, b);
 }
 
@@ -37,10 +43,10 @@ void	sort_them_numbers(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	init_stack(&a, argc + 1);
-	init_stack(&b, argc + 1);
 	if (argc > 1)
 	{
+		init_stack(&a, argc + 1);
+		init_stack(&b, argc + 1);
 		i = 0;
 		while (argv[i] != NULL)
 		{

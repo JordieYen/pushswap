@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jking-ye <jking-ye@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:50:05 by jking-ye          #+#    #+#             */
-/*   Updated: 2022/03/13 17:56:18 by jking-ye         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:04:18 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct stack
 	int	size_ptr;
 }	t_stack;
 
+void	sortunder10(t_stack *a, t_stack *b);
+double	getmedian(t_stack *s, int len);
+void	sort4ascend(t_stack *a, t_stack *b);
+void	sort4decend(t_stack *a, t_stack *b);
+void	sort2ascend(t_stack *s, char c);
+void	sort2decend(t_stack *s, char c);
 void	freearg(char **arg);
 void	errorexit(void);
 int		getsizeofarg(char **arg);
